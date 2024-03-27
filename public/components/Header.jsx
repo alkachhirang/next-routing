@@ -7,11 +7,15 @@ import Navlogo from '../assets/images/png/navlogo.png';
 
 const Header = () => {
     const [show, setShow] = useState(true);
-    if (show === false) {
-        document.body.classList.add("max-lg:overflow-hidden");
-    } else {
-        document.body.classList.remove("max-lg:overflow-hidden");
-    }
+    const [_document, set_document] = useState(null)
+    useEffect(() => {
+        set_document(document)
+        if (show === false) {
+            document.body.classList.add("max-lg:overflow-hidden")
+        } else {
+            document.body.classList.remove("max-lg:overflow-hidden")
+        }
+    }, [])
     return (
         <div className=' bg-blue-100'>
             <div className="container px-3 mx-auto relative">
